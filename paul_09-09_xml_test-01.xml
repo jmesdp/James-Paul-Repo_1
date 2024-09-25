@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+1. The root element is ingredients
+2. Descriptive markups in XML label specifc parts of piece of text without providing instructions on
+how the text should be displayed. Presentational markups on the other hand give cues on text's  
+structure and specify's how the text should be displayed and/or formatted.
+    a) Descriptive: <character> superman </character>. This is a descriptive markup because it
+    simply labels a part of the text — the occcurance of the word supermnan — as belonging to the 
+    character class. 
+    b) Presentational: <bold> superman </bold>. This is a presentational markup because it gives 
+    an instruction to display the character's that make up the word superman in bold, without commenting
+    on the meaning of the words or the class it belongs to. This type of markup instructs how
+    the text should be displayed — in this case in bold.
+    c) In digital humanities projects, where the aim is to answer central research questions on
+    meaning spread across a corpus, descriptive markups capture the meaning of the text without
+    relying on visual cues, such as structure. These markups can be used to interpret thematic and
+    semantic meaning of a corpus by identifying recurring content.
+3. The following scenarios would cause a well-formedness error:
+    B - This would cause and error because the tag "speaker" has already been assigned to the 
+    character homer when it's reused on bart. When an element has two tags belonging to the 
+    same class, the name of the tag should be changed on subsequent occurences. 
+        a. Corrected element: <speech speaker1="homer" speaker2="bart">Doh!</speech>
+    D - This is not well formed because the system would read the element as containing
+    two seperate attributes of main and speaker, without the former being assigned a value.
+        a. Corrected element: <speech main_speaker="Gertrude">
+                              </speech>
+        b. Explanation: This corrects the error by concatenating the attribute into a single
+        element with the use of an underscore. The system would then view it as only one
+        element.
+    F - This would give an error as XML is capitalization sensitve and would view the start 
+    and end-tags as completly seperate. The system would see the start tag as having no
+    end and the end tag as having no start. To correct this the form of the text
+    should be kept consistent.
+        a. Corrected element: <line> If it be,</line>
+                              <line> Why seems it so particular with these?</line>
+    G - This would cause an error as XML documents must have a single root element that contains
+    all other elements, which need to be encapsulated with a conistent start and end tag. Without
+    one, the XML reader wouldn't know how to format the information.
+        a. Corrected element: <stooges>
+                              <stooge> Curly </stooge>
+                              <stooge> Larry </stooge>
+                              <stooge> Moe </stooge>
+                              </stooges>
+    H - This wouldn't work because XML would read the less than sign as starting an element. All 
+    subsequent text would be read as XML markups and not actual text.
+        a. Corrected element: <equation> 1 &lt 2 </equation>
+        b. Explanation: &lt is a pre-defined XML statement used to demarcate the less than symbol. It
+        should be used to preserve the meaning of the text while still making it XML readable.
+    J - This would cause a red square to appear because XML follows a nesting structure where each element
+    needs to be contained within its parent element. This example would break this structure because the quote
+    element is broken up by line elements, which would lead the XML reader to become confused over where
+    the quote element starts and ends. To fix this, the quote element needs to be opened and closed 
+    within the line element.
+        a. Corrected element: <stanza>
+                                    <line> abc </line>
+                                    <line>
+                                    <quote> abc               
+                                    </quote>
+                                    </line>
+                              </stanza>
+                            
+
+    
+     
+ 
+    
+    
+    
+    
+    
