@@ -62,6 +62,17 @@
         "type": "Feature",
         "geometry": {
         "type": "Point",
+        "coordinates": [40.43377476733715,-79.95321886170174]
+        },
+        "properties": {
+        "name": "home"
+        }
+        }
+    ,
+        {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
         "coordinates": [-79.9532,40.4444]
         },
         "properties": {
@@ -112,6 +123,8 @@
         "type": "LineString",
         "coordinates": [
         
+            [40.43377476733715,-79.95321886170174]
+        ,
             [-79.9532,40.4444]
         
         ]
